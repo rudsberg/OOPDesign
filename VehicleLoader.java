@@ -72,6 +72,7 @@ public class VehicleLoader implements Loadables {
         }
 
         v.setsPositionToSameAs(position);
+
         loaderWeight.addToWeight(v.getWeight());
     }
 

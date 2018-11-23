@@ -17,6 +17,6 @@ public class Volvo240 extends PassengerCar {
      */
     @Override
     public double speedFactor(){
-        return getEnginePower() * 0.01 * trimFactor;
+        return getEnginePower() * 0.001 * trimFactor;
     }
 }

@@ -30,7 +30,7 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240(200, 30, Color.red, "", 4, 0, 0, Direction.DOWN, 2000));
+        cc.cars.add(new Volvo240(200, 3, Color.red, "", 4, 0, 0, Direction.DOWN, 2000));
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -62,5 +62,24 @@ public class CarController {
         ) {
             car.gas(gas);
         }
+    }
+
+    void stopAll() {
+        for (Vehicle car : cars) {
+            car.stopEngine();
+        }
+    }
+
+    void startAll() {
+        for (Vehicle car : cars) {
+            car.startEngine();
+        }
+    }
+    void brakeAll(int amount){
+        double brake = ((double) amount) / 100;
+        for (Vehicle car : cars) {
+            car.brake(brake);
+        }
+
     }
 }

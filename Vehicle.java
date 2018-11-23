@@ -28,7 +28,7 @@ public abstract class Vehicle implements Movable, Positionable {
         this.direction = direction;
         this.weight = new Weight(weight);
     }
-//
+
     public Positioner getPosition() {
         return position;
     }
@@ -168,7 +168,8 @@ public abstract class Vehicle implements Movable, Positionable {
      * Sets the starting speed.
      */
     void startEngine() {
-        currentSpeed = 0.1;
+        if (currentSpeed == 0)
+            currentSpeed = 0.1;
     }
 
     /**
@@ -203,7 +204,7 @@ public abstract class Vehicle implements Movable, Positionable {
      */
     private void decrementSpeed(double amount) {
         double tempCurrentSpeed = getCurrentSpeed() - speedFactor() * amount;
-        if (currentSpeed > 0) {
+        if (currentSpeed > 0 && tempCurrentSpeed >=0) {
             currentSpeed = tempCurrentSpeed;
         } else {
             currentSpeed = 0;
