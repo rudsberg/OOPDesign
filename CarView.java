@@ -16,11 +16,12 @@ import java.awt.event.ActionListener;
 public class CarView extends JFrame {
     private static final int SCREEN_WIDTH = 1920;
     private static final int SCREEN_HEIGHT = 1080;
+    private static final int HEIGHT_CONTROLLERS = 240;
 
     // The controller member
     CarController carController;
 
-    DrawPanel drawPanel = new DrawPanel(SCREEN_WIDTH, SCREEN_HEIGHT - 240);
+    DrawPanel drawPanel = new DrawPanel(SCREEN_WIDTH, SCREEN_HEIGHT - HEIGHT_CONTROLLERS);
 
     JPanel controlPanel = new JPanel();
 
@@ -43,6 +44,22 @@ public class CarView extends JFrame {
     public CarView(String framename, CarController cc){
         this.carController = cc;
         initComponents(framename);
+    }
+
+    public static int getRideableScreenWidth() {
+        return SCREEN_WIDTH;
+    }
+
+    public static int getRideableScreenHeight() {
+        return SCREEN_HEIGHT - HEIGHT_CONTROLLERS;
+    }
+
+    public static int getScreenWidth() {
+        return SCREEN_WIDTH;
+    }
+
+    public static int getScreenHeight() {
+        return SCREEN_HEIGHT;
     }
 
     // Sets everything in place and fits everything
