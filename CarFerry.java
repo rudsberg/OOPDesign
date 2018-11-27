@@ -10,8 +10,9 @@ import java.awt.*;
 
 public class CarFerry extends Ferry implements Loadables {
     private VehicleLoader vehicleLoader;
+    private final static String modelName= "CarFerry";
 
-    public CarFerry(double enginePower, double currentSpeed, Color color, String modelName, double x, double y, Direction direction, int MAX_LOAD_CAPACATY, int MAX_VEHICLE_SIZE, int weight, int MAX_DISTANCE_TO_LOAD) {
+    public CarFerry(double enginePower, double currentSpeed, Color color, double x, double y, Direction direction, int MAX_LOAD_CAPACATY, int MAX_VEHICLE_SIZE, int weight, int MAX_DISTANCE_TO_LOAD) {
         super(enginePower, currentSpeed, color, modelName, x, y, direction, MAX_LOAD_CAPACATY, MAX_VEHICLE_SIZE, weight, MAX_DISTANCE_TO_LOAD);
         this.vehicleLoader = new VehicleLoader(MAX_DISTANCE_TO_LOAD, MAX_VEHICLE_SIZE, MAX_LOAD_CAPACATY, Load_Type.FRONT_TO_BACK, getPosition(), getReferenceWeight());
     }

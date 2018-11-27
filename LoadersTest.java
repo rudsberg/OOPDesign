@@ -11,8 +11,8 @@ class LoadersTest {
     List<CarFerry> carFerries = new ArrayList<>();
 
     LoadersTest() {
-        loaders.add(new VolvoSemiTruck(500, 60, Color.cyan, "", 2, 0, 0, Direction.DOWN, 15_000));
-        carFerries.add(new CarFerry(4000, 5, Color.green, "my boat", 50, 50, Direction.RIGHT, 50, 7000, 50_000, 40));
+        loaders.add(new VolvoSemiTruck(500, 60, Color.cyan, 2, 0, 0, Direction.DOWN, 15_000));
+        carFerries.add(new CarFerry(4000, 5, Color.green, 50, 50, Direction.RIGHT, 50, 7000, 50_000, 40));
     }
 
     @Test
@@ -171,6 +171,6 @@ class LoadersTest {
     }
 
     private Vehicle createCar(double x, double y, int weight) {
-        return new Volvo240(300, 30, Color.red, "Vrålåket", 4, x, y, Direction.DOWN, weight);
+        return new Volvo240(300, 30, Color.red, 4, x, y, Direction.DOWN, weight);
     }
 }

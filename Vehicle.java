@@ -18,15 +18,15 @@ public abstract class Vehicle implements Movable, Positionable {
     private Direction direction;
     private Weight weight;
 
-    public Vehicle(double enginePower, double currentSpeed, Color color, String modelName, double x, double y, Direction direction, int weight) {
+    public Vehicle(double enginePower, double currentSpeed, Color color, double x, double y, Direction direction, int weight, String modelName) {
         this.enginePower = enginePower;
         this.currentSpeed = currentSpeed;
         this.color = color;
-        this.modelName = modelName;
         this.position = new Positioner(x, y);
         this.directions = asList(Direction.UP, Direction.RIGHT, Direction.DOWN, Direction.LEFT);
         this.direction = direction;
         this.weight = new Weight(weight);
+        this.modelName = modelName;
     }
 
     public Positioner getPosition() {

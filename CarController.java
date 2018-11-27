@@ -28,15 +28,16 @@ public class CarController {
 
     public static void main(String[] args) {
         // Instance of this class
-        CarController cc = new CarController();
+        CarController carController = new CarController();
 
-        cc.cars.add(new Volvo240(200, 3, Color.red, "", 4, 0, 0, Direction.DOWN, 2000));
-
+        carController.cars.add(new Volvo240(200, 2, Color.red, 4, 0, 0, Direction.DOWN, 2000));
+        carController.cars.add(new Saab95(200, 2, Color.red, 4, 100, 0, Direction.DOWN, 2000));
+        carController.cars.add(new Scania(200,2,Color.ORANGE,3,0,200,Direction.DOWN,2000));
         // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
+        carController.frame = new CarView("CarSim 1.0", carController);
 
         // Start the timer
-        cc.timer.start();
+        carController.timer.start();
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
@@ -48,7 +49,7 @@ public class CarController {
                 car.move();
                 int x = (int) Math.round(car.getPosition().getX());
                 int y = (int) Math.round(car.getPosition().getY());
-                frame.drawPanel.moveit(x, y);
+                frame.drawPanel.moveit(car.getPosition(), car.getModelName());
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
@@ -56,7 +57,7 @@ public class CarController {
     }
 
     // Calls the gas method for each car once
-    void gas(int amount) {
+    void gasAll(int amount) {
         double gas = ((double) amount) / 100;
         for (Vehicle car : cars
         ) {
@@ -75,7 +76,8 @@ public class CarController {
             car.startEngine();
         }
     }
-    void brakeAll(int amount){
+
+    void brakeAll(int amount) {
         double brake = ((double) amount) / 100;
         for (Vehicle car : cars) {
             car.brake(brake);

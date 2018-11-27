@@ -7,8 +7,8 @@ import java.awt.Color;
 public abstract class SemiTruck extends Car implements Loadables {
     private VehicleLoader vehicleLoader;
 
-    public SemiTruck(double enginePower, double currentSpeed, Color color, String modelName, int nrDoors, int x, int y, Direction direction, int MAX_LOAD_CAPACATY, int MAX_VEHICLE_SIZE, int weight, int MAX_DISTANCE_TO_LOAD) {
-        super(enginePower, currentSpeed, color, modelName, nrDoors, x, y, direction, weight);
+    public SemiTruck(double enginePower, double currentSpeed, Color color, int nrDoors, int x, int y, Direction direction, int MAX_LOAD_CAPACATY, int MAX_VEHICLE_SIZE, int weight, int MAX_DISTANCE_TO_LOAD, String modelName) {
+        super(enginePower, currentSpeed, color, nrDoors, x, y, direction, weight,modelName);
         this.vehicleLoader = new VehicleLoader(MAX_DISTANCE_TO_LOAD, MAX_VEHICLE_SIZE, MAX_LOAD_CAPACATY, Load_Type.BACK_TO_BACK, getPosition(), getReferenceWeight());
     }
 

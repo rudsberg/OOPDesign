@@ -11,7 +11,7 @@ import java.util.List;
 class ScaniaTest {
     private final List<Scania> scanias = new ArrayList<Scania>(
             Arrays.asList(
-                    new Scania(400, Color.ORANGE, "Scania", 2, 50, 50, Direction.LEFT, 50, 20000)
+                    new Scania(400, Color.ORANGE, 2, 50, 50, Direction.LEFT, 50, 20000)
             ));
 
     @Test
