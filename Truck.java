@@ -10,8 +10,8 @@ public abstract class Truck extends Car {
     private final double MAX_TRUCK_BED_ANGLE;
     private final double MIN_TRUCK_BED_ANGLE;
 
-    public Truck(double enginePower, double currentSpeed, Color color, String modelName, int nrDoors, double x, double y, Direction direction, double MAX_TRUCK_BED_ANGLE, double MIN_TRUCK_BED_ANGLE, int weight) {
-        super(enginePower, currentSpeed, color, modelName, nrDoors, x, y, direction, weight);
+    public Truck(double enginePower, double currentSpeed, Color color, int nrDoors, double x, double y, Direction direction, double MAX_TRUCK_BED_ANGLE, double MIN_TRUCK_BED_ANGLE, int weight, String modelName) {
+        super(enginePower, currentSpeed, color,nrDoors, x, y, direction, weight,modelName);
         this.MAX_TRUCK_BED_ANGLE = MAX_TRUCK_BED_ANGLE;
         this.MIN_TRUCK_BED_ANGLE = MIN_TRUCK_BED_ANGLE;
         this.truckBedAngle = MIN_TRUCK_BED_ANGLE;

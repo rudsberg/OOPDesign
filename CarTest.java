@@ -12,9 +12,9 @@ class CarTest {
     Random rand = new Random();
     List<Car> cars = new ArrayList<>(
             Arrays.asList(
-                    new Volvo240(300, 40, Color.red, "Volvo v70", 4, 0, 0, Direction.DOWN, 2000),
-                    new Saab95(240, 70, Color.blue, "Min moderna saab", 6, 100, 50, Direction.RIGHT, 1500),
-                    new Scania(400, 60, Color.blue, "Min moderna scania", 2, 50, 50, Direction.RIGHT, 20000)
+                    new Volvo240(300, 40, Color.red, 4, 0, 0, Direction.DOWN, 2000),
+                    new Saab95(240, 70, Color.blue, 6, 100, 50, Direction.RIGHT, 1500),
+                    new Scania(400, 60, Color.blue, 2, 50, 50, Direction.RIGHT, 20000)
             ));
     private final static int CARS_TO_TEST = 10_000;
 
@@ -27,11 +27,11 @@ class CarTest {
             Car cRef = cars.get(i % cars.size());
 
             if (cRef instanceof Volvo240) {
-                cars.add(new Volvo240(genEnginePower(), genCurrentSpeed(), Color.red, "", genNumDoors(), genX(), genY(), genDir(Direction.class), 2000));
+                cars.add(new Volvo240(genEnginePower(), genCurrentSpeed(), Color.red,  genNumDoors(), genX(), genY(), genDir(Direction.class), 2000));
             } else if (cRef instanceof Saab95) {
-                cars.add(new Saab95(genEnginePower(), genCurrentSpeed(), Color.red, "", genNumDoors(), genX(), genY(), genDir(Direction.class), 2100));
+                cars.add(new Saab95(genEnginePower(), genCurrentSpeed(), Color.red,  genNumDoors(), genX(), genY(), genDir(Direction.class), 2100));
             } else {
-                cars.add(new Volvo240(genEnginePower(), genCurrentSpeed(), Color.red, "", genNumDoors(), genX(), genY(), genDir(Direction.class), 20000));
+                cars.add(new Volvo240(genEnginePower(), genCurrentSpeed(), Color.red,  genNumDoors(), genX(), genY(), genDir(Direction.class), 20000));
             }
         }
     }

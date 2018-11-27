@@ -8,8 +8,8 @@ import java.awt.*;
 public abstract class Car extends Vehicle {
     private final int nrDoors; // Number of doors on the car
 
-    public Car(double enginePower, double currentSpeed, Color color, String modelName, int nrDoors, double x, double y, Direction direction, int weight) {
-        super(enginePower, currentSpeed, color, modelName, x, y, direction, weight);
+    public Car(double enginePower, double currentSpeed, Color color, int nrDoors, double x, double y, Direction direction, int weight,String modelName) {
+        super(enginePower, currentSpeed, color, x, y, direction, weight,modelName);
         this.nrDoors = nrDoors;
     }
 
