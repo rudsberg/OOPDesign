@@ -47,13 +47,17 @@ public class CarController {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle car : cars) {
                 car.move();
-                int x = (int) Math.round(car.getPosition().getX());
-                int y = (int) Math.round(car.getPosition().getY());
+                if (isCollision())
+
                 frame.drawPanel.moveit(car.getPosition(), car.getModelName());
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
         }
+    }
+
+    private boolean isCollision() {
+        return true;
     }
 
     // Calls the gas method for each car once
