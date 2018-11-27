@@ -86,6 +86,40 @@ public class CarController {
         for (Vehicle car : cars) {
             car.brake(brake);
         }
+    }
 
+    void turboOn() {
+        for (Vehicle car : cars) {
+            if (car.hasTurbo()) {
+                Turboable t = (Turboable) car;
+                t.setTurboOn();
+            }
+        }
+    }
+
+    void turboOff() {
+        for (Vehicle car : cars) {
+            if (car.hasTurbo()) {
+                Turboable t = (Turboable) car;
+                t.setTurboOff();
+            }
+        }
+    }
+
+    public void liftBed() {
+        for (Vehicle car : cars) {
+            if (car.hasTruckBed()) {
+
+            }
+        }
+
+
+    }
+
+    public void lowerBed() {
+        for (Vehicle car : cars) {
+
+
+        }
     }
 }

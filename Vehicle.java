@@ -48,6 +48,7 @@ public abstract class Vehicle implements Movable, Positionable {
 
     /**
      * Given another positionable it will set the position equal to the active object (this).
+     *
      * @param
      */
     public void setsPositionToSameAs(Positionable loadedVehicle) {
@@ -172,6 +173,20 @@ public abstract class Vehicle implements Movable, Positionable {
             currentSpeed = 0.1;
     }
 
+    public boolean hasTruckBed() {
+        return (this instanceof Truck || this instanceof Loadables);
+    }
+
+    /**
+     * Checks if said Vehicle is a model which has turbo.
+     *
+     * @return a boolean specifying true or false.
+     */
+
+    public boolean hasTurbo() {
+        return this instanceof Turboable;
+    }
+
     /**
      * Turns off the engine and sets the speed to 0.
      */
@@ -204,7 +219,7 @@ public abstract class Vehicle implements Movable, Positionable {
      */
     private void decrementSpeed(double amount) {
         double tempCurrentSpeed = getCurrentSpeed() - speedFactor() * amount;
-        if (currentSpeed > 0 && tempCurrentSpeed >=0) {
+        if (currentSpeed > 0 && tempCurrentSpeed >= 0) {
             currentSpeed = tempCurrentSpeed;
         } else {
             currentSpeed = 0;

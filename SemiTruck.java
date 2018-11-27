@@ -17,12 +17,12 @@ public abstract class SemiTruck extends Car implements Loadables {
     }
 
     /**
-     * Delegates to {@see VehicleLoader#getAmountVehiclesLoaded()}
+     * Delegates to {@see VehicleLoader#getAmountItemLoaded()}
      * @return
      */
     @Override
-    public int getAmountVehiclesLoaded() {
-        return vehicleLoader.getAmountVehiclesLoaded();
+    public int getAmountItemLoaded() {
+        return vehicleLoader.getAmountItemLoaded();
     }
 
     /**
@@ -61,16 +61,16 @@ public abstract class SemiTruck extends Car implements Loadables {
     }
 
     @Override
-    public void loadVehicle(Vehicle v) {
+    public void loadItem(Vehicle v) {
         if (v == this)
             return;
 
-        vehicleLoader.loadVehicle(v);
+        vehicleLoader.loadItem(v);
     }
 
     @Override
-    public void unLoadVehicle() {
-        vehicleLoader.unLoadVehicle();
+    public void unLoadItem() {
+        vehicleLoader.unLoadItem();
     }
 
     @Override
@@ -99,8 +99,8 @@ public abstract class SemiTruck extends Car implements Loadables {
     }
 
     @Override
-    public int getMaxVehicleWeight() {
-        return vehicleLoader.getMaxVehicleWeight();
+    public int getMaxItemWeight() {
+        return vehicleLoader.getMaxItemWeight();
     }
 
     @Override

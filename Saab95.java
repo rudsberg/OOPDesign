@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * Extends the abstract car class. Saab95 also has a turbo functionallity which will affect its speed factor.
  */
-public class Saab95 extends PassengerCar {
+public class Saab95 extends PassengerCar implements Turboable {
     private boolean turboOn;
     private final static String modelName = "Saab95";
 

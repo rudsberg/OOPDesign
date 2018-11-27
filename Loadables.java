@@ -1,6 +1,6 @@
 public interface Loadables {
-    void loadVehicle(Vehicle v);
-    void unLoadVehicle();
+    void loadItem(Vehicle v);
+    void unLoadItem();
     void closeTruckBed();
     void openTruckBed();
 
@@ -10,8 +10,8 @@ public interface Loadables {
     boolean inRange(Positionable v);
 
     int getMaxLoadAmount();
-    int getMaxVehicleWeight();
+    int getMaxItemWeight();
     int getMaxDistanceToLoad();
     int getMaxLoadCapacity();
-    int getAmountVehiclesLoaded();
+    int getAmountItemLoaded();
 }

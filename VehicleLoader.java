@@ -48,7 +48,7 @@ public class VehicleLoader implements Loadables {
      * @return an int
      */
     @Override
-    public int getAmountVehiclesLoaded() {
+    public int getAmountItemLoaded() {
         if (isBackToBackLoaded())
             return backToBackLoaded.size();
         else
@@ -60,7 +60,7 @@ public class VehicleLoader implements Loadables {
      * @param v A Vehicle
      */
     @Override
-    public void loadVehicle(Vehicle v) {
+    public void loadItem(Vehicle v) {
         if (!canItLoad(v))
             return;
 
@@ -96,8 +96,8 @@ public class VehicleLoader implements Loadables {
      * is closed and there is one or more vehicles already loaded.
      */
     @Override
-    public void unLoadVehicle() {
-        if (isTruckBedClosed() || getAmountVehiclesLoaded() <= 0)
+    public void unLoadItem() {
+        if (isTruckBedClosed() || getAmountItemLoaded() <= 0)
             return;
 
         Vehicle v;
@@ -182,7 +182,7 @@ public class VehicleLoader implements Loadables {
     }
 
     @Override
-    public int getMaxVehicleWeight() {
+    public int getMaxItemWeight() {
         return MAX_ITEM_WEIGHT;
     }
 
