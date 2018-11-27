@@ -17,11 +17,11 @@ public class CarFerry extends Ferry implements Loadables {
     }
 
     /**
-     * Delegates to {@see VehicleLoader#getAmountVehiclesLoaded()}
+     * Delegates to {@see VehicleLoader#getAmountItemLoaded()}
      */
     @Override
-    public int getAmountVehiclesLoaded() {
-        return vehicleLoader.getAmountVehiclesLoaded();
+    public int getAmountItemLoaded() {
+        return vehicleLoader.getAmountItemLoaded();
     }
 
     /**
@@ -46,22 +46,22 @@ public class CarFerry extends Ferry implements Loadables {
 
     /**
      *
-     * Delegates to {@see VehicleLoader#loadVehicle(v)} and also makes sure that the CarFerry can't load itself upon itself
+     * Delegates to {@see VehicleLoader#loadItem(v)} and also makes sure that the CarFerry can't load itself upon itself
      * @param v The vehicle which we want to load upon the CarFerry.
      */
     @Override
-    public void loadVehicle(Vehicle v) {
+    public void loadItem(Vehicle v) {
         if (this == v)
             return;
-        vehicleLoader.loadVehicle(v);
+        vehicleLoader.loadItem(v);
     }
 
     /**
-     *  Delegates to {@see VehicleLoader#unLoadVehicle()}
+     *  Delegates to {@see VehicleLoader#unLoadItem()}
      */
     @Override
-    public void unLoadVehicle() {
-        vehicleLoader.unLoadVehicle();
+    public void unLoadItem() {
+        vehicleLoader.unLoadItem();
     }
     /**
      *  Delegates to {@see VehicleLoader#closeTruckBed()}
@@ -114,11 +114,11 @@ public class CarFerry extends Ferry implements Loadables {
     }
 
     /**
-     * Delegates to {@see VehicleLoader#getMaxVehicleWeight()}
+     * Delegates to {@see VehicleLoader#getMaxItemWeight()}
      */
     @Override
-    public int getMaxVehicleWeight() {
-        return vehicleLoader.getMaxVehicleWeight();
+    public int getMaxItemWeight() {
+        return vehicleLoader.getMaxItemWeight();
     }
     /**
      * Delegates to {@see VehicleLoader#getMaxDistanceToLoad()}
