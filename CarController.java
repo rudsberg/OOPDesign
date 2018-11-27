@@ -32,7 +32,7 @@ public class CarController {
 
         carController.cars.add(new Volvo240(200, 2, Color.red, 4, 0, 0, Direction.DOWN, 2000));
         carController.cars.add(new Saab95(200, 2, Color.red, 4, 100, 0, Direction.DOWN, 2000));
-        carController.cars.add(new Scania(200,2,Color.ORANGE,3,0,200,Direction.DOWN,2000));
+        carController.cars.add(new Scania(200, 2, Color.ORANGE, 3, 0, 200, Direction.DOWN, 2000));
         // Start a new view and send a reference of self
         carController.frame = new CarView("CarSim 1.0", carController);
 
@@ -105,6 +105,11 @@ public class CarController {
     public void liftBed() {
         for (Vehicle car : cars) {
             if (car.hasTruckBed()) {
+                Scania scania = (Scania) car;
+                scania.setTruckBedAngle(scania.getMaxTruckBedAngle());
+                System.out.println(scania.getTruckBedAngle());
+
+
 
             }
         }
@@ -114,8 +119,11 @@ public class CarController {
 
     public void lowerBed() {
         for (Vehicle car : cars) {
-
-
+            if (car.hasTruckBed()) {
+                Scania scania = (Scania) car;
+                scania.setTruckBedAngle(scania.getMinTruckBedAngle());
+                System.out.println(scania.getTruckBedAngle());
+            }
         }
     }
 }
