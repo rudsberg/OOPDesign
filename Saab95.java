@@ -5,7 +5,7 @@ import java.awt.*;
  */
 public class Saab95 extends PassengerCar implements Turboable {
     private boolean turboOn;
-    private final static String modelName = "Saab95";
+    private final static String modelName = VehicleModel.Saab95.name();
 
     Saab95(double enginePower, double currentSpeed, Color color, int nrDoors, double x, double y, Direction direction, int weight) {
         super(enginePower, currentSpeed, color, nrDoors, x, y, direction, weight,modelName);

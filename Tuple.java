@@ -1,6 +1,6 @@
 public class Tuple<A, B> {
-    A a;
-    B b;
+    private A a;
+    private B b;
 
     Tuple(A a, B b) {
         this.a = a;

@@ -24,15 +24,23 @@ public class CarController {
     // A list of cars, modify if needed
     ArrayList<Vehicle> cars = new ArrayList<>();
 
-    //methods:
+    CarController() {
+        initCars();
+    }
+
+    private void initCars() {
+        Vehicle volvo240 = new Volvo240(200, 2, Color.red, 4, 0, 0, Direction.DOWN, 2000);
+        Vehicle saab95 = new Saab95(200, 2, Color.red, 4, 0, 100, Direction.DOWN, 2000);
+        Vehicle scania = new Scania(200,2,Color.ORANGE,3,0,200,Direction.DOWN,2000);
+
+        cars.add(volvo240);
+        cars.add(saab95);
+        cars.add(scania);
+    }
 
     public static void main(String[] args) {
         // Instance of this class
         CarController carController = new CarController();
-
-        Vehicle volvo240 = new Volvo240(200, 2, Color.red, 4, 0, 600, Direction.DOWN, 2000);
-        Vehicle saab95 = new Saab95(200, 2, Color.red, 4, 0, 100, Direction.DOWN, 2000);
-        Vehicle scania = new Scania(200,2,Color.ORANGE,3,0,200,Direction.DOWN,2000);
 
         // Start a new view and send a reference of self
         carController.frame = new CarView("CarSim 1.0", carController);
@@ -121,27 +129,18 @@ public class CarController {
         }
     }
 
-    public void liftBed() {
+    public void closeTruckBed() {
         for (Vehicle car : cars) {
-            if (car.hasTruckBed()) {
-                Scania scania = (Scania) car;
-                scania.setTruckBedAngle(scania.getMaxTruckBedAngle());
-                System.out.println(scania.getTruckBedAngle());
-
-
-
+            if (car.isTruck()) {
+                ((Scania) car).setTruckBedAngle(((Scania) car).getMinTruckBedAngle());
             }
         }
-
-
     }
 
-    public void lowerBed() {
+    public void openTruckBed() {
         for (Vehicle car : cars) {
-            if (car.hasTruckBed()) {
-                Scania scania = (Scania) car;
-                scania.setTruckBedAngle(scania.getMinTruckBedAngle());
-                System.out.println(scania.getTruckBedAngle());
+            if (car.isTruck()) {
+                ((Scania) car).setTruckBedAngle(((Scania) car).getMaxTruckBedAngle());
             }
         }
     }

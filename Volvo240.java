@@ -4,7 +4,7 @@ import java.awt.*;
  * Extends the abstract car class. Volvo240 also has a trim factor which will affect its speed factor.
  */
 public class Volvo240 extends PassengerCar {
-    private final static String modelName = "Volvo240";
+    private final static String modelName = VehicleModel.Volvo240.name();
     private final static double trimFactor = 1.25;
 
     Volvo240(double enginePower, double currentSpeed, Color color, int nrDoors, double x, double y, Direction direction, int weight) {

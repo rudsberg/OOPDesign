@@ -7,7 +7,7 @@ import java.awt.*;
 public class Scania extends Truck {
     private final static double MAX_TRUCK_BED_ANGLE = 70;
     private final static double MIN_TRUCK_BED_ANGLE = 0;
-    private final static String modelName="Scania";
+    private final static String modelName = VehicleModel.Scania.name();
 
     /**
      *  Constructor given initial truck bed angle and will therefore set initial speed to 0.

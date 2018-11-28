@@ -173,9 +173,9 @@ public abstract class Vehicle implements Movable, Positionable {
             currentSpeed = 0.1;
     }
 
-    public boolean hasTruckBed() {
+    public boolean isTruck() {
         //VI VET ATT DETTA ÄR DÅLIGT OK????
-        return (this instanceof Truck || this instanceof Loadables);
+        return (this instanceof Truck);
     }
 
     /**
