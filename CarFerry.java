@@ -128,4 +128,21 @@ public class CarFerry extends Ferry implements Loadables {
     public int getMaxDistanceToLoad() {
         return vehicleLoader.getMaxDistanceToLoad();
     }
+
+    @Override
+    void gas(double amount) {
+        if (isTruckBedClosed()) {
+            super.gas(amount);
+        } else {
+            System.out.println("TRUCK BED IS OPEN");
+        }
+    }
+    @Override
+    void startEngine() {
+        if (isTruckBedClosed()) {
+            super.startEngine();
+        } else {
+            System.out.println("TRUCK BED IS OPEN");
+        }
+    }
 }

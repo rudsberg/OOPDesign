@@ -11,7 +11,7 @@ public abstract class Truck extends Car {
     private final double MIN_TRUCK_BED_ANGLE;
 
     public Truck(double enginePower, double currentSpeed, Color color, int nrDoors, double x, double y, Direction direction, double MAX_TRUCK_BED_ANGLE, double MIN_TRUCK_BED_ANGLE, int weight, String modelName) {
-        super(enginePower, currentSpeed, color,nrDoors, x, y, direction, weight,modelName);
+        super(enginePower, currentSpeed, color, nrDoors, x, y, direction, weight, modelName);
         this.MAX_TRUCK_BED_ANGLE = MAX_TRUCK_BED_ANGLE;
         this.MIN_TRUCK_BED_ANGLE = MIN_TRUCK_BED_ANGLE;
         this.truckBedAngle = MIN_TRUCK_BED_ANGLE;
@@ -45,17 +45,23 @@ public abstract class Truck extends Car {
      */
     @Override
     public void gas(double amount) {
-        truckBedAngle = MIN_TRUCK_BED_ANGLE;
-        super.gas(amount);
+        if (truckBedAngle == MIN_TRUCK_BED_ANGLE) {
+            super.gas(amount);
+        } else {
+            System.out.println("TRUCK BED IS OPEN");
+        }
     }
 
     /**
      * Sets the starting speed and closes the truckBed.
      */
     @Override
-    public void startEngine() {
-        truckBedAngle = MIN_TRUCK_BED_ANGLE;
-        super.startEngine();
+    void startEngine() {
+        if (truckBedAngle == MIN_TRUCK_BED_ANGLE) {
+            super.startEngine();
+        } else {
+            System.out.println("TRUCK BED IS OPEN");
+        }
     }
 
     public double getMaxTruckBedAngle() {

@@ -174,6 +174,7 @@ public abstract class Vehicle implements Movable, Positionable {
     }
 
     public boolean hasTruckBed() {
+        //VI VET ATT DETTA ÄR DÅLIGT OK????
         return (this instanceof Truck || this instanceof Loadables);
     }
 

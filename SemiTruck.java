@@ -8,7 +8,7 @@ public abstract class SemiTruck extends Car implements Loadables {
     private VehicleLoader vehicleLoader;
 
     public SemiTruck(double enginePower, double currentSpeed, Color color, int nrDoors, int x, int y, Direction direction, int MAX_LOAD_CAPACATY, int MAX_VEHICLE_SIZE, int weight, int MAX_DISTANCE_TO_LOAD, String modelName) {
-        super(enginePower, currentSpeed, color, nrDoors, x, y, direction, weight,modelName);
+        super(enginePower, currentSpeed, color, nrDoors, x, y, direction, weight, modelName);
         this.vehicleLoader = new VehicleLoader(MAX_DISTANCE_TO_LOAD, MAX_VEHICLE_SIZE, MAX_LOAD_CAPACATY, Load_Type.BACK_TO_BACK, getPosition(), getReferenceWeight());
     }
 
@@ -18,6 +18,7 @@ public abstract class SemiTruck extends Car implements Loadables {
 
     /**
      * Delegates to {@see VehicleLoader#getAmountItemLoaded()}
+     *
      * @return
      */
     @Override
@@ -27,6 +28,7 @@ public abstract class SemiTruck extends Car implements Loadables {
 
     /**
      * Delegates to {@see VehicleLoader#getMaxLoadCapacaty()}
+     *
      * @return
      */
     @Override
@@ -36,18 +38,25 @@ public abstract class SemiTruck extends Car implements Loadables {
 
     /**
      * Delegates to {@see VehicleLoader#startEngine()}
+     *
      * @return
      */
     @Override
     void startEngine() {
-        closeTruckBed();
-        super.startEngine();
+        if (isTruckBedClosed()) {
+            super.startEngine();
+        } else {
+            System.out.println("TRUCK BED IS OPEN");
+        }
     }
 
     @Override
     void gas(double amount) {
-        closeTruckBed();
-        super.gas(amount);
+        if (isTruckBedClosed()) {
+            super.gas(amount);
+        } else {
+            System.out.println("TRUCK BED IS OPEN");
+        }
     }
 
     @Override

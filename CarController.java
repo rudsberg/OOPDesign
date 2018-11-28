@@ -124,6 +124,11 @@ public class CarController {
     public void liftBed() {
         for (Vehicle car : cars) {
             if (car.hasTruckBed()) {
+                Scania scania = (Scania) car;
+                scania.setTruckBedAngle(scania.getMaxTruckBedAngle());
+                System.out.println(scania.getTruckBedAngle());
+
+
 
             }
         }
@@ -133,8 +138,11 @@ public class CarController {
 
     public void lowerBed() {
         for (Vehicle car : cars) {
-
-
+            if (car.hasTruckBed()) {
+                Scania scania = (Scania) car;
+                scania.setTruckBedAngle(scania.getMinTruckBedAngle());
+                System.out.println(scania.getTruckBedAngle());
+            }
         }
     }
 }
