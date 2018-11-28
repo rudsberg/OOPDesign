@@ -12,7 +12,6 @@ public class VehicleLoader implements Loadables {
     private Positioner position;
     private OpenClosedState openClosedState;
     private Weight loaderWeight;
-
     private List<Vehicle> frontToBackLoaded;
     private Deque<Vehicle> backToBackLoaded;
 
@@ -176,10 +175,6 @@ public class VehicleLoader implements Loadables {
         return MAX_DISTANCE_TO_LOAD >= Positioner.getDistanceBetween(position, v);
     }
 
-    @Override
-    public int getMaxLoadAmount() {
-        return MAX_LOAD_CAPACITY;
-    }
 
     @Override
     public int getMaxItemWeight() {

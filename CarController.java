@@ -20,18 +20,18 @@ public class CarController {
     private Timer timer = new Timer(delay, new TimerListener());
 
     // The frame that represents this instance View of the MVC pattern
-    CarView frame;
+    private CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Vehicle> cars = new ArrayList<>();
+    private final ArrayList<Vehicle> cars = new ArrayList<>();
 
-    CarController() {
+    private CarController() {
         initCars();
     }
 
     private void initCars() {
         Vehicle volvo240 = new Volvo240(200, 2, Color.red, 4, 0, 0, Direction.DOWN, 2000);
         Vehicle saab95 = new Saab95(200, 2, Color.red, 4, 0, 100, Direction.DOWN, 2000);
-        Vehicle scania = new Scania(200,2,Color.ORANGE,3,0,200,Direction.DOWN,2000);
+        Vehicle scania = new Scania(200, 2, Color.ORANGE, 3, 0, 200, Direction.DOWN, 2000);
 
         cars.add(volvo240);
         cars.add(saab95);
@@ -66,6 +66,7 @@ public class CarController {
             }
         }
     }
+// move this to vehicle?
 
     private void stopReverseAndGasVehicle(Vehicle car) {
         car.stopEngine();
@@ -129,7 +130,7 @@ public class CarController {
         }
     }
 
-    public void closeTruckBed() {
+    void closeTruckBed() {
         for (Vehicle car : cars) {
             if (car.isTruck()) {
                 ((Scania) car).setTruckBedAngle(((Scania) car).getMinTruckBedAngle());
@@ -137,7 +138,7 @@ public class CarController {
         }
     }
 
-    public void openTruckBed() {
+    void openTruckBed() {
         for (Vehicle car : cars) {
             if (car.isTruck()) {
                 ((Scania) car).setTruckBedAngle(((Scania) car).getMaxTruckBedAngle());
