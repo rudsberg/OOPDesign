@@ -9,10 +9,7 @@ import java.util.ArrayList;
  * It's responsibilities is to listen to the View and responds in a appropriate manner by
  * modifying the model state and the updating the view.
  */
-
 public class CarController {
-    // member fields:
-
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
     // The timer is started with an listener (see below) that executes the statements
@@ -31,7 +28,7 @@ public class CarController {
     private void initCars() {
         Vehicle volvo240 = new Volvo240(200, 2, Color.red, 4, 0, 0, Direction.DOWN, 2000);
         Vehicle saab95 = new Saab95(200, 2, Color.red, 4, 0, 100, Direction.DOWN, 2000);
-        Vehicle scania = new Scania(200,2,Color.ORANGE,3,0,200,Direction.DOWN,2000);
+        Vehicle scania = new Scania(200, 2, Color.ORANGE, 3, 0, 200, Direction.DOWN, 2000);
 
         cars.add(volvo240);
         cars.add(saab95);
@@ -71,7 +68,7 @@ public class CarController {
         car.stopEngine();
         car.turn180Degress();
         car.startEngine();
-        car.gas(0.1);
+        car.gas(0.3);
     }
 
     private boolean isOutsideOfScreen(Positioner position, Direction directionOfTravel) {
@@ -114,8 +111,7 @@ public class CarController {
     void turboOn() {
         for (Vehicle car : cars) {
             if (car.hasTurbo()) {
-                Turboable t = (Turboable) car;
-                t.setTurboOn();
+                ((Turboable) car).setTurboOn();
             }
         }
     }
