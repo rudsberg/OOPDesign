@@ -10,7 +10,7 @@ public class VehicleLoader implements Loadables {
     private final int MAX_LOAD_CAPACITY;
     private final Load_Type LOAD_TYPE;
     private Positioner position;
-    private TruckBedState truckBedState;
+    private OpenClosedState openClosedState;
     private Weight loaderWeight;
 
     private List<Vehicle> frontToBackLoaded;
@@ -28,7 +28,7 @@ public class VehicleLoader implements Loadables {
         this.backToBackLoaded = backToBackLoaded;
         this.LOAD_TYPE = LOAD_TYPE;
         this.position = position;
-        this.truckBedState = TruckBedState.CLOSED;
+        this.openClosedState = OpenClosedState.CLOSED;
         this.loaderWeight = loaderWeight;
     }
 
@@ -113,19 +113,19 @@ public class VehicleLoader implements Loadables {
     }
 
     /**
-     * Sets the truckBedState to CLOSED.
+     * Sets the openClosedState to CLOSED.
      */
     @Override
     public void closeTruckBed() {
-        truckBedState = TruckBedState.CLOSED;
+        openClosedState = OpenClosedState.CLOSED;
     }
 
     /**
-     * Sets the truckBedState to OPEN.
+     * Sets the openClosedState to OPEN.
      */
     @Override
     public void openTruckBed() {
-        truckBedState = TruckBedState.OPEN;
+        openClosedState = OpenClosedState.OPEN;
     }
 
     private Vehicle unloadBackToBack() {
@@ -154,7 +154,7 @@ public class VehicleLoader implements Loadables {
      */
     @Override
     public boolean isTruckBedClosed() {
-        return truckBedState == TruckBedState.CLOSED;
+        return openClosedState == OpenClosedState.CLOSED;
     }
 
     /**
@@ -163,7 +163,7 @@ public class VehicleLoader implements Loadables {
      */
     @Override
     public boolean isTruckBedOpen() {
-        return truckBedState == TruckBedState.OPEN;
+        return openClosedState == OpenClosedState.OPEN;
     }
 
     /**

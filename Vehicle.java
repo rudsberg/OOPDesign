@@ -5,7 +5,7 @@ import static java.util.Arrays.asList;
 
 /**
  * An abstract class representing a vehicle. It also implements from movable and positionable.
- * It has a modelname, current direction, engine power, current speed, x and y position and a weight
+ * It has a modelname, current directionOfTravel, engine power, current speed, x and y position and a weight
  */
 public abstract class Vehicle implements Movable, Positionable {
     private final static double MAX_SPEED_CHANGE = 1;
@@ -15,16 +15,16 @@ public abstract class Vehicle implements Movable, Positionable {
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private Positioner position;
-    private Direction direction;
+    private Direction directionOfTravel;
     private Weight weight;
 
-    public Vehicle(double enginePower, double currentSpeed, Color color, double x, double y, Direction direction, int weight, String modelName) {
+    public Vehicle(double enginePower, double currentSpeed, Color color, double x, double y, Direction directionOfTravel, int weight, String modelName) {
         this.enginePower = enginePower;
         this.currentSpeed = currentSpeed;
         this.color = color;
         this.position = new Positioner(x, y);
         this.directions = asList(Direction.UP, Direction.RIGHT, Direction.DOWN, Direction.LEFT);
-        this.direction = direction;
+        this.directionOfTravel = directionOfTravel;
         this.weight = new Weight(weight);
         this.modelName = modelName;
     }
@@ -59,14 +59,14 @@ public abstract class Vehicle implements Movable, Positionable {
     }
 
     /**
-     * Depending on the direction of travel and its current speed the car will change its x and y coordinates accordingly.
+     * Depending on the directionOfTravel of travel and its current speed the car will change its x and y coordinates accordingly.
      */
     @Override
     public void move() {
         double x = getX();
         double y = getY();
 
-        switch (direction) {
+        switch (directionOfTravel) {
             case UP:
                 setY(y - currentSpeed);
                 break;
@@ -90,7 +90,7 @@ public abstract class Vehicle implements Movable, Positionable {
      */
     @Override
     public void turnLeft() {
-        direction = directions.get((directions.indexOf(direction) - 1 + directions.size()) % directions.size());
+        directionOfTravel = directions.get((directions.indexOf(directionOfTravel) - 1 + directions.size()) % directions.size());
     }
 
     /**
@@ -98,11 +98,11 @@ public abstract class Vehicle implements Movable, Positionable {
      */
     @Override
     public void turnRight() {
-        direction = directions.get((directions.indexOf(direction) + 1 + directions.size()) % directions.size());
+        directionOfTravel = directions.get((directions.indexOf(directionOfTravel) + 1 + directions.size()) % directions.size());
     }
 
     /**
-     * Turns 180 degrees direction.
+     * Turns 180 degrees directionOfTravel.
      */
     public void turn180Degress() {
         turnLeft();
@@ -117,12 +117,12 @@ public abstract class Vehicle implements Movable, Positionable {
         return weight.getWeight();
     }
 
-    public void setDirection(Direction direction) {
-        this.direction = direction;
+    public void setDirectionOfTravel(Direction directionOfTravel) {
+        this.directionOfTravel = directionOfTravel;
     }
 
-    public Direction getDirection() {
-        return direction;
+    public Direction getDirectionOfTravel() {
+        return directionOfTravel;
     }
 
     public double getX() {

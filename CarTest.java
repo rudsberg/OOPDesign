@@ -71,23 +71,23 @@ class CarTest {
             double speed = c.getCurrentSpeed();
             double marginError = 0.0001;
 
-            c.setDirection(Direction.RIGHT);
+            c.setDirectionOfTravel(Direction.RIGHT);
             c.move();
             assertTrue(initX + speed - c.getX() < marginError);
             assertTrue(initX + speed - c.getX() < marginError);
             assertTrue(initY - c.getY() < marginError);
 
-            c.setDirection(Direction.DOWN);
+            c.setDirectionOfTravel(Direction.DOWN);
             c.move();
             assertTrue(initX + speed - c.getX() < marginError);
             assertTrue(initY + speed - c.getY() < marginError);
 
-            c.setDirection(Direction.LEFT);
+            c.setDirectionOfTravel(Direction.LEFT);
             c.move();
             assertTrue(initX - c.getX() < marginError);
             assertTrue(initY + speed - c.getY() < marginError);
 
-            c.setDirection(Direction.UP);
+            c.setDirectionOfTravel(Direction.UP);
             c.move();
             assertTrue(initX - c.getX() < marginError);
             assertTrue(initY - c.getY() < marginError);
@@ -97,49 +97,49 @@ class CarTest {
     @org.junit.jupiter.api.Test
     void turnLeft() {
         for (Car c : cars) {
-            c.setDirection(Direction.UP);
+            c.setDirectionOfTravel(Direction.UP);
             c.turnLeft();
-            assertEquals(Direction.LEFT, c.getDirection());
+            assertEquals(Direction.LEFT, c.getDirectionOfTravel());
             c.turnLeft();
-            assertEquals(Direction.DOWN, c.getDirection());
+            assertEquals(Direction.DOWN, c.getDirectionOfTravel());
             c.turnLeft();
-            assertEquals(Direction.RIGHT, c.getDirection());
+            assertEquals(Direction.RIGHT, c.getDirectionOfTravel());
             c.turnLeft();
-            assertEquals(Direction.UP, c.getDirection());
+            assertEquals(Direction.UP, c.getDirectionOfTravel());
         }
     }
 
     @org.junit.jupiter.api.Test
     void turnRight() {
         for (Car c : cars) {
-            c.setDirection(Direction.UP);
+            c.setDirectionOfTravel(Direction.UP);
             c.turnRight();
-            assertEquals(Direction.RIGHT, c.getDirection());
+            assertEquals(Direction.RIGHT, c.getDirectionOfTravel());
             c.turnRight();
-            assertEquals(Direction.DOWN, c.getDirection());
+            assertEquals(Direction.DOWN, c.getDirectionOfTravel());
             c.turnRight();
-            assertEquals(Direction.LEFT, c.getDirection());
+            assertEquals(Direction.LEFT, c.getDirectionOfTravel());
             c.turnRight();
-            assertEquals(Direction.UP, c.getDirection());
+            assertEquals(Direction.UP, c.getDirectionOfTravel());
         }
     }
 
     @Test
     void turning() {
         for (Car c : cars) {
-            c.setDirection(Direction.DOWN);
+            c.setDirectionOfTravel(Direction.DOWN);
             c.turnRight();
-            assertEquals(Direction.LEFT, c.getDirection());
+            assertEquals(Direction.LEFT, c.getDirectionOfTravel());
             c.turnLeft();
-            assertEquals(Direction.DOWN, c.getDirection());
+            assertEquals(Direction.DOWN, c.getDirectionOfTravel());
             c.turnLeft();
-            assertEquals(Direction.RIGHT, c.getDirection());
+            assertEquals(Direction.RIGHT, c.getDirectionOfTravel());
             c.turnLeft();
-            assertEquals(Direction.UP, c.getDirection());
+            assertEquals(Direction.UP, c.getDirectionOfTravel());
             c.turnLeft();
-            assertEquals(Direction.LEFT, c.getDirection());
+            assertEquals(Direction.LEFT, c.getDirectionOfTravel());
             c.turnRight();
-            assertEquals(Direction.UP, c.getDirection());
+            assertEquals(Direction.UP, c.getDirectionOfTravel());
         }
     }
 
