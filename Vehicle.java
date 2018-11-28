@@ -174,7 +174,7 @@ public abstract class Vehicle implements Movable, Positionable {
     }
 
     public boolean isTruck() {
-        //VI VET ATT DETTA ÄR DÅLIGT OK????
+        // Different better improvement will be added
         return (this instanceof Truck);
     }
 
@@ -183,7 +183,6 @@ public abstract class Vehicle implements Movable, Positionable {
      *
      * @return a boolean specifying true or false.
      */
-
     public boolean hasTurbo() {
         return this instanceof Turboable;
     }
