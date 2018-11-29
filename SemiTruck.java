@@ -101,7 +101,7 @@ public abstract class SemiTruck extends Car implements Loadables {
     public boolean inRange(Positionable v) {
         return vehicleLoader.inRange(v);
     }
-    
+
     @Override
     public int getMaxItemWeight() {
         return vehicleLoader.getMaxItemWeight();

@@ -2,11 +2,10 @@ import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ScaniaTest {
     private final List<Scania> scanias = new ArrayList<Scania>(
@@ -38,6 +37,7 @@ class ScaniaTest {
             s.setTruckBedAngle(minAngle + 1);
             assertEquals(minAngle + 1, s.getTruckBedAngle());
 
+            s.setTruckBedAngle(minAngle);
             TestHelperFunctions.getSpeedTo(s, s.getEnginePower() / 2);
             s.setTruckBedAngle(middleAngle);
             assertEquals(s.getMinTruckBedAngle(), s.getTruckBedAngle());
@@ -48,8 +48,15 @@ class ScaniaTest {
     @Test
     void startEngine() {
         for (Scania s : scanias) {
+            s.stopEngine();
+            s.setTruckBedAngle(s.getMinTruckBedAngle());
             s.startEngine();
-            assertEquals(s.getMinTruckBedAngle(), s.getTruckBedAngle());
+            assertEquals(0.1,s.getCurrentSpeed());
+            s.stopEngine();
+            s.setTruckBedAngle(s.getMaxTruckBedAngle());
+            s.startEngine();
+            assertEquals(0,s.getCurrentSpeed());
+
         }
     }
 }

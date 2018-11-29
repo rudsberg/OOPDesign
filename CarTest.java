@@ -147,6 +147,7 @@ class CarTest {
     @org.junit.jupiter.api.Test
     void startEngine() {
         for (Car c : cars) {
+            c.stopEngine();
             c.startEngine();
             assertEquals(0.1, c.getCurrentSpeed());
         }

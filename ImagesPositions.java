@@ -1,17 +1,17 @@
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.imageio.ImageIO;
 
 public class ImagesPositions {
-    private List<ImagePosition> imagesPositionsList = new ArrayList<>();
+    private final List<ImagePosition> imagesPositionsList = new ArrayList<>();
 
-    public ImagesPositions() {
+    ImagesPositions() {
         initImagesOfAllVehicles();
     }
 
-    public List<ImagePosition> getImagesPositionsList() {
+    List<ImagePosition> getImagesPositionsList() {
         return imagesPositionsList;
     }
 
@@ -21,7 +21,7 @@ public class ImagesPositions {
         }
     }
 
-    public boolean isVehicleHere(Positioner position) {
+    boolean isVehicleHere(Positioner position) {
         for (ImagePosition imagePosition : imagesPositionsList) {
             Positioner pos = imagePosition.getPosition();
             if (position.equals(pos))
@@ -31,7 +31,7 @@ public class ImagesPositions {
         return false;
     }
 
-    public void addVehicleToList(Positioner position, String modelName) {
+    void addVehicleToList(Positioner position, String modelName) {
         addPositionAndImageFor(modelName, position);
     }
 
