@@ -44,6 +44,7 @@ public class VehicleLoader implements Loadables {
 
     /**
      * Depending on the load type specified at creation it will return number of vehicles added to the loader.
+     *
      * @return an int
      */
     @Override
@@ -56,6 +57,7 @@ public class VehicleLoader implements Loadables {
 
     /**
      * If it is able to load: vehicle not too heavy, not in range, truck bed is closed or if it's fully loaded.
+     *
      * @param v A Vehicle
      */
     @Override
@@ -70,10 +72,12 @@ public class VehicleLoader implements Loadables {
             v.turn180Degress();
         }
 
-        v.setsPositionToSameAs(position);
+        v.setsPositionToSameAs(this.position);
+
 
         loaderWeight.addToWeight(v.getWeight());
     }
+
 
     private void loadBackToBackVehicle(Vehicle v) {
         backToBackLoaded.push(v);
@@ -106,6 +110,7 @@ public class VehicleLoader implements Loadables {
         else
             v = unloadFrontToBack();
 
+        v.setsPositionToSameAs(new Positioner(position.getX(), position.getY()));
         v.gas(0.3);
         v.move();
         loaderWeight.removeWeight(v.getWeight());
@@ -137,6 +142,7 @@ public class VehicleLoader implements Loadables {
 
     /**
      * Checks if loader has reached it's max load capacity.
+     *
      * @return A boolean
      */
     @Override
@@ -149,6 +155,7 @@ public class VehicleLoader implements Loadables {
 
     /**
      * Checks if the truck bed is closed.
+     *
      * @return A boolean
      */
     @Override
@@ -158,7 +165,6 @@ public class VehicleLoader implements Loadables {
 
     /**
      * Checks if the truck bed is open.
-     * @return
      */
     @Override
     public boolean isTruckBedOpen() {
@@ -167,6 +173,7 @@ public class VehicleLoader implements Loadables {
 
     /**
      * Checks if the loader is in within a loadble distance with the vehicle passed.
+     *
      * @param v A Positionable
      * @return A boolean
      */

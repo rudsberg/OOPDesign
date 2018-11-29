@@ -29,7 +29,7 @@ class LoadersTest {
     private <T extends Vehicle & Loadables> void loadSpecificVehicle(T loader) {
         int amountLoaded = loader.getAmountItemLoaded();
         Vehicle car = createCar(loader.getX(), loader.getY(), 2000);
-        Vehicle awayCar = createCar(loader.getX() + 2, loader.getY() + 3, 2000);
+        Vehicle awayCar = createCar(loader.getX() + loader.getMaxDistanceToLoad() + 5, loader.getY() + loader.getMaxDistanceToLoad() + 5, 2000);
         Vehicle oversizedCar = createCar(loader.getX(), loader.getY(), loader.getMaxItemWeight() + 100);
 
         // Load two cars normal way
@@ -67,8 +67,9 @@ class LoadersTest {
         // Check that loaded car has same position as loader
         getReadyToLoad(loader);
         getCapacityTo(loader, loader.getAmountItemLoaded() / 2);
+        amountLoaded = loader.getAmountItemLoaded();
         loader.loadItem(awayCar);
-        assertEquals(awayCar.getX(), loader.getX());
+        assertEquals(amountLoaded, loader.getAmountItemLoaded());
     }
 
     @Test

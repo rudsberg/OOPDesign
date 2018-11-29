@@ -27,6 +27,7 @@ public abstract class Vehicle implements Movable, Positionable {
         this.directionOfTravel = directionOfTravel;
         this.weight = new Weight(weight);
         this.modelName = modelName;
+
     }
 
     public Positioner getPosition() {
@@ -51,11 +52,10 @@ public abstract class Vehicle implements Movable, Positionable {
      *
      * @param
      */
-    public void setsPositionToSameAs(Positionable loadedVehicle) {
-        if (this == loadedVehicle)
+     void setsPositionToSameAs(Positioner loader) {
+        if (this.getPosition() == loader)
             return;
-
-        position.setsPositionToSameAs(loadedVehicle);
+        this.position=loader;
     }
 
     /**
@@ -164,6 +164,7 @@ public abstract class Vehicle implements Movable, Positionable {
     public void setColor(Color clr) {
         color = clr;
     }
+
 
     /**
      * Sets the starting speed.
